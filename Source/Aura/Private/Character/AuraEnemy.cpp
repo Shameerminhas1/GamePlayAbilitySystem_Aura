@@ -13,4 +13,4 @@ void AAuraEnemy::UnHighlightActor()
 {
 	bHighlighted = false;
 }
-     
+
