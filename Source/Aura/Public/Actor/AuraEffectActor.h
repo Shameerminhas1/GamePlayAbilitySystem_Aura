@@ -22,7 +22,7 @@ protected:
 	
 	virtual void BeginPlay() override;
 
-	UFUNCTION(Blueprintable)
+	UFUNCTION(BlueprintCallable)
 	void ApplyEffectsToTargets(AActor* Target, TSubclassOf<UGameplayEffect> GameplayEffectClass);
 	
 	UPROPERTY(EditAnywhere, Category="Applied Attributes")
