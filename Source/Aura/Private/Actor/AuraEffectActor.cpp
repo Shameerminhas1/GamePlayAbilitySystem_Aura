@@ -12,11 +12,10 @@ AAuraEffectActor::AAuraEffectActor()
 }
                                                                                                                  
 void AAuraEffectActor::BeginPlay()
-{
+{    
 	Super::BeginPlay();
-
 	
-}
+}                 
 
 void AAuraEffectActor::ApplyEffectsToTargets(AActor* TargetActor, TSubclassOf<UGameplayEffect> GameplayEffectClass)
 {
@@ -27,6 +26,16 @@ void AAuraEffectActor::ApplyEffectsToTargets(AActor* TargetActor, TSubclassOf<UG
 	 
 	FGameplayEffectContextHandle EffectContextHandle = TargetASC->MakeEffectContext();
 	EffectContextHandle.AddSourceObject(this);
-	FGameplayEffectSpecHandle EffectSpecHandle = TargetASC->MakeOutgoingSpec(GameplayEffectClass,1.,EffectContextHandle);
+	const FGameplayEffectSpecHandle EffectSpecHandle = TargetASC->MakeOutgoingSpec(GameplayEffectClass,1.f,EffectContextHandle);
 	TargetASC->ApplyGameplayEffectSpecToSelf(*EffectSpecHandle.Data.Get());
 }
+
+void AAuraEffectActor::OnOverlap(AActor* TargetActor)
+{
+	
+}
+
+void AAuraEffectActor::OnEndOverlap(AActor* TargetActor)
+{
+	
+} 
