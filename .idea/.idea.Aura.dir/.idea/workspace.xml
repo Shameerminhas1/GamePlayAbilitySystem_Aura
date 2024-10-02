@@ -18,6 +18,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Shameerminhas1"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8a54cce3-923a-4159-b5f0-2888fabf8b88" />
+        <option name="url" value="git@github.com:Shameerminhas1/GameplayAbilitySystem_Aura.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -155,7 +169,7 @@
       <workItem from="1727669546543" duration="9673000" />
       <workItem from="1727680386321" duration="12867000" />
       <workItem from="1727755954927" duration="16881000" />
-      <workItem from="1727842715357" duration="13544000" />
+      <workItem from="1727842715357" duration="15659000" />
     </task>
     <servers />
   </component>
