@@ -31,9 +31,9 @@ class AURA_API AAuraEffectActor : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
+public:
+	
 	AAuraEffectActor();
-
 
 protected:
 	
@@ -73,6 +73,10 @@ protected:
 	EEffectRemovalPolicy InfiniteEffectRemovalPolicy = EEffectRemovalPolicy::RemoveOnEndOverlap;
 
 	TMap<FActiveGameplayEffectHandle, UAbilitySystemComponent*> ActiveEffectHandles;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Applied Attributes")
+	float ActorLevel = 1.f;
+	
 private:
 
 };
