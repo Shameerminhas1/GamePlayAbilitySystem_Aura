@@ -32,7 +32,7 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AuraAttributeSet->GetMaxManaAttribute()).AddUObject(this, &UOverlayWidgetController::MaxManaChanged);
 
 	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetTags.AddLambda([]
-		(const FGameplayTagContainer& AssetTag)
+		(const FGameplayTagContainer& AssetTag)                      
 	{
 		for( const FGameplayTag Tag : AssetTag  )
 		{
