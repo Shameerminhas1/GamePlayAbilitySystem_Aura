@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class AURA_API UMMC_MaxMana : public UGameplayModMagnitudeCalculation
+class AURA_API UMMC_MaxMana : public UGameplayModMagnitudeCalculation    
 {
 	GENERATED_BODY()
 
