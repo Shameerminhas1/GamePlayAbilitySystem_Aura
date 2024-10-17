@@ -12,7 +12,7 @@ FAuraAttributeInfo UAttributeInfo::FindAttributeInfoFromTag(const FGameplayTag& 
 		{
 			return Info;
 		}
-	}
+	} 
 	if (bLogNotFound)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Can't find information about ATTRIBUTE TAG [%s] on Array ATTRIBUTEINFO [%s]"),*AttributeTag.ToString(),*GetNameSafe(this));

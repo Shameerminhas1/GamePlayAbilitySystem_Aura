@@ -36,4 +36,3 @@ UOverlayWidgetController* AAuraHUD::GetOverlayWidgetController(const FWidgetCont
 	}
 	return OverlayWidgetController;
 }
-
