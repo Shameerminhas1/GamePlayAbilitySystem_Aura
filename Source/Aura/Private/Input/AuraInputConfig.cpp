@@ -1,10 +1,10 @@
 // copyright Game Strix Studio
 
 
-#include "Data/AuraInputConfig.h"
+#include "Input/AuraInputConfig.h"
 
 const UInputAction* UAuraInputConfig::FindInputAbilityActionForTag(const FGameplayTag& InputTag,
-	bool bLogNotfound) const
+                                                                   bool bLogNotfound) const
 {
 	for (const FAuraInputAction Action : AbilityInputActions)
 	{
