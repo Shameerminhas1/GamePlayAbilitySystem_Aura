@@ -62,9 +62,11 @@ private:
 	bool bTargeting = false;
 	
 	UPROPERTY(EditDefaultsOnly)
-	float bAutoAcceptanceRadius = 50.f;
+	float AutoRunAcceptanceRadius = 50.f;
  
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USplineComponent> Spline;
+
+	void AutoRun();
 	
 };
