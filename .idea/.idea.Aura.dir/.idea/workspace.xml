@@ -8,14 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc671f13-952a-43c4-b843-295503ec67eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/Abilities/AuraProjectileSpell.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/Abilities/AuraProjectileSpell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Aura.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Aura.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/Actor/AuraProjectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/Actor/AuraProjectile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/Character/AuraCharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/Character/AuraCharacterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/Interaction/CombatInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/Interaction/CombatInterface.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/Character/AuraCharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/Character/AuraCharacterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/Interaction/CombatInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/Interaction/CombatInterface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/Abilities/AuraProjectileSpell.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/Abilities/AuraProjectileSpell.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/UI/WidgetController/OverlayWidgetController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/UI/WidgetController/OverlayWidgetController.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,22 +35,18 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../unreal engine/UE_5.3/Engine/Source/Runtime/UMG/Private/Components/ProgressBar.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../unreal engine/UE_5.3/Engine/Source/Runtime/UMG/Public/Blueprint/UserWidget.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Aura.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilitySystemComponent.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/Aura/Private/AuraGameplayTags.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Aura/Private/AuraGameplayTags.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/Character/AuraCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/Input/AuraInputConfig.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/Player/AuraPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/UI/HUD/AuraHUD.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/UI/WidgetController/AuraWidgetController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/UI/WidgetController/OverlayWidgetController.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/Aura/Public/AuraGameplayTags.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Aura/Public/AuraGameplayTags.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Public/Character/AuraCharacterBase.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Public/Input/AuraInputConfig.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Public/Player/AuraPlayerController.h" root0="FORCE_HIGHLIGHTING" />
@@ -209,7 +200,7 @@
       <workItem from="1729483403093" duration="2190000" />
       <workItem from="1729486467001" duration="21728000" />
       <workItem from="1729570004614" duration="23126000" />
-      <workItem from="1729657921604" duration="8821000" />
+      <workItem from="1729657921604" duration="15262000" />
     </task>
     <servers />
   </component>

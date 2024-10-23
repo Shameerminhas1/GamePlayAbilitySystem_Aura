@@ -37,5 +37,4 @@ void UAuraProjectileSpell::ActivateAbility(const FGameplayAbilitySpecHandle Hand
 		Projectile->FinishSpawning(SpawnTransform);
 	}
 	
-	
 }
