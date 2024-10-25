@@ -31,4 +31,7 @@ private:
 	
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USphereComponent> Sphere;
+
+		
+
 };

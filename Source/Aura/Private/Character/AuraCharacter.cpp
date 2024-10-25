@@ -13,7 +13,7 @@ AAuraCharacter::AAuraCharacter()
 {
 // character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true;
-	GetCharacterMovement()->RotationRate = FRotator(0.f,400.f,0.f);
+	GetCharacterMovement()->RotationRate = FRotator(0.f,14000.f,0.f);
 	GetCharacterMovement()->bConstrainToPlane = true; // to hold in 2d plain 
 	GetCharacterMovement()->bSnapToPlaneAtStart = true; // same as above restricts movement in z axis
 
