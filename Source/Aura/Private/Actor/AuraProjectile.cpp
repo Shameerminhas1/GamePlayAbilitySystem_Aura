@@ -7,6 +7,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "NiagaraFunctionLibrary.h"
+#include "Aura/Aura.h"
 #include "Components/AudioComponent.h"
 
 
@@ -16,6 +17,7 @@ AAuraProjectile::AAuraProjectile()
 	PrimaryActorTick.bCanEverTick = false;
 	bReplicates = true;
 	Sphere = CreateDefaultSubobject<USphereComponent>("Sphere");
+	Sphere->SetCollisionObjectType(ECC_Projectile);
 	SetRootComponent(Sphere);
 	Sphere->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	Sphere->SetCollisionResponseToAllChannels(ECR_Ignore);

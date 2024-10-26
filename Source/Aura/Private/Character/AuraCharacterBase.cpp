@@ -2,6 +2,7 @@
 #include "Character/AuraCharacterBase.h"
 #include "AbilitySystemComponent.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
+#include "Aura/Aura.h"
 #include "Components/CapsuleComponent.h"
 AAuraCharacterBase::AAuraCharacterBase()
 {
@@ -12,6 +13,8 @@ AAuraCharacterBase::AAuraCharacterBase()
 	Weapon->SetupAttachment(GetMesh(), "WeaponHandSocket");
 	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Camera,ECR_Ignore);
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Projectile,ECR_Overlap);
+	GetCapsuleComponent()->SetGenerateOverlapEvents(true);
 	GetMesh()->SetCollisionResponseToChannel(ECC_Camera,ECR_Ignore);
 }
 
