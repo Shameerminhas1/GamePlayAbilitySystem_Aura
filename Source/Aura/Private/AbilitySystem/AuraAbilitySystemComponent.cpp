@@ -2,7 +2,6 @@
 
 
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
-
 #include "AuraGameplayTags.h"
 #include "AbilitySystem/Abilities/AuraGameplayAbility.h"
 
@@ -24,7 +23,7 @@ void UAuraAbilitySystemComponent::AddCharacterAbilities(TArray<TSubclassOf<UGame
 		//GiveAbilityAndActivateOnce(AbilitySpec);
 	}
 }
-
+   
 void UAuraAbilitySystemComponent::AbilityInputTagHeld(const FGameplayTag& InputTag)
 {
 	if(!InputTag.IsValid()) return;
