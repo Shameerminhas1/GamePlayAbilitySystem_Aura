@@ -1,4 +1,4 @@
-// copyright Game Strix Studio
+   // copyright Game Strix Studio
 
 
 #include "AbilitySystem/Data/CharacterClassInfo.h"
