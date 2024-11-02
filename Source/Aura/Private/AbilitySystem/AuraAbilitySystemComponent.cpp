@@ -62,6 +62,5 @@ void UAuraAbilitySystemComponent::ClientEffectApplied_Implementation(UAbilitySys
 	EffectSpec.GetAllAssetTags(TagContainer);
 
 	EffectAssetTags.Broadcast(TagContainer);
-	  
-	
+	 
 }

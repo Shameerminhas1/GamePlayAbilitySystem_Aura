@@ -32,6 +32,14 @@ public:
 	virtual int32 GetPlayerLevel() override;
 	/** end Combat Interface*/
 
+	void HitReactTagChanged(FGameplayTag CallbackTag, int32 NewCount);
+
+	UPROPERTY(BlueprintReadOnly, Category="Combat")
+	bool bHitReacting = false;
+
+	UPROPERTY(BlueprintReadOnly, Category="Combat")
+	float BaseWalkSpeed = 250.f;
+		
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnHealthChanged;
 

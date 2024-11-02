@@ -1,6 +1,5 @@
 // copyright Game Strix Studio
 
-
 #include "AuraGameplayTags.h"
 #include "GameplayTagsManager.h"
 FAuraGameplayTags FAuraGameplayTags::GameplayTags;
@@ -97,5 +96,7 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	FName("Damage"),
 	FString("Damage"));
 	
-	
+	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("Effects.HitReact"),
+	FString("Tag Granted When Hit Reacting"));
 }
