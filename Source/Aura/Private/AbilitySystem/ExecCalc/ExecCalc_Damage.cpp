@@ -121,7 +121,6 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	//CriticalHitResistance Reduces critical HitChance by some percent
 	const float EffectiveCriticalHitChance = SourceCriticalHitChance - TargetCriticalHitResistance * CriticalHitResistanceCoefficient;
 	const bool bCriticalHit = FMath::RandRange(1,100) < EffectiveCriticalHitChance;
-
 	//Double Damage plus a bonus if Critical
 	Damage = bCriticalHit ? 2.f * Damage + SourceCriticalHitDamage : Damage;
 	const FGameplayModifierEvaluatedData EvaluatedData(UAuraAttributeSet::GetIncomingDamageAttribute(),EGameplayModOp::Additive,Damage);                

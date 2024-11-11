@@ -78,7 +78,8 @@ protected:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void StartWeaponDissolveTimeline(UMaterialInstanceDynamic* DynamicMaterialInstance);
-	
+
+	// make a dynamic material instance on basis of dissolve mi given in bp code is structured to swap materials and continue the timeline
 	void Dissolve();
 
 private:
