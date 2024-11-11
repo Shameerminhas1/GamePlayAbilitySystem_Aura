@@ -4,6 +4,7 @@
 #include "AbilitySystem/ExecCalc/ExecCalc_Damage.h"
 
 #include "AbilitySystemComponent.h"
+#include "AuraAbilityTypes.h"
 #include "AuraGameplayTags.h"
 #include "AbilitySystem/AuraAbilitySystemLibrary.h"
 #include "AbilitySystem/AuraAttributeSet.h"
@@ -78,6 +79,10 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	TargetBlockChance = FMath::Max<float>(TargetBlockChance,0.f);
 	
 	const bool bBlocked = FMath::RandRange(1,100) < TargetBlockChance;
+
+	FGameplayEffectContextHandle ContextHandle = Spec.GetEffectContext();
+	UAuraAbilitySystemLibrary::SetIsBlockedHit(ContextHandle,bBlocked);
+	
 	//(if block halves the damage)
 	Damage = bBlocked ? Damage / 2.f : Damage;
 
@@ -123,6 +128,8 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	const bool bCriticalHit = FMath::RandRange(1,100) < EffectiveCriticalHitChance;
 	//Double Damage plus a bonus if Critical
 	Damage = bCriticalHit ? 2.f * Damage + SourceCriticalHitDamage : Damage;
+	UAuraAbilitySystemLibrary::SetIsCriticalHit(ContextHandle,bCriticalHit);
+	
 	const FGameplayModifierEvaluatedData EvaluatedData(UAuraAttributeSet::GetIncomingDamageAttribute(),EGameplayModOp::Additive,Damage);                
 	OutExecutionOutput.AddOutputModifier(EvaluatedData);
 }
