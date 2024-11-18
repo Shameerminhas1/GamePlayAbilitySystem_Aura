@@ -50,6 +50,8 @@ public:
 	FGameplayTag InputTag_3;
 	FGameplayTag InputTag_4;
 
+	FGameplayTag Abilities_Attack;
+
 	FGameplayTag Damage;
 
 	FGameplayTag Damage_Fire;
