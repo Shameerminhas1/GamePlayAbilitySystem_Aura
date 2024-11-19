@@ -76,6 +76,11 @@ bool AAuraCharacterBase::IsDead_Implementation() const
 	return bDead;
 }
 
+TArray<FTaggedMontage> AAuraCharacterBase::GetAttackMontages_Implementation()
+{
+	return AttackMontages;
+}
+
 void AAuraCharacterBase::InitAbilityActorInfo()
 {
 	
