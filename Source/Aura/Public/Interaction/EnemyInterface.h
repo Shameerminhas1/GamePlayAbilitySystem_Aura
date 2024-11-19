@@ -26,5 +26,11 @@ public:
 	//pure virtual functions rendering this class abstract, now this class does not need definition.
 	virtual void HighlightActor() = 0;
 	virtual void UnHighlightActor() = 0;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetCombatTarget(AActor* InCombatTarget);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	AActor* GetCombatTarget() const;
 	
 };
