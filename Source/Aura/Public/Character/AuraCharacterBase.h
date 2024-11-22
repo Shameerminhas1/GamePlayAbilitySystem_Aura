@@ -7,6 +7,7 @@
 #include "Interaction/CombatInterface.h"
 #include "AuraCharacterBase.generated.h"
 
+class UNiagaraSystem;
 class UGameplayAbility;
 class UGameplayEffect;
 class UAuraAbilitySystemComponent;
@@ -32,6 +33,7 @@ public:
 	virtual AActor* GetAvatar_Implementation() override;
 	virtual bool IsDead_Implementation() const override;
 	virtual TArray<FTaggedMontage> GetAttackMontages_Implementation() override;
+	virtual UNiagaraSystem* GetBloodEffects_Implementation() override;
 	//Combat Interface/
 
 	UFUNCTION(NetMulticast, Reliable)
@@ -97,6 +99,9 @@ protected:
 	// make a dynamic material instance on basis of dissolve mi given in bp code is structured to swap materials and continue the timeline
 	void Dissolve();
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UNiagaraSystem* BloodEffects;
+	
 private:
 	
 	UPROPERTY(EditAnywhere, Category="Abilities")

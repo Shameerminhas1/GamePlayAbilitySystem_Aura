@@ -94,6 +94,12 @@ TArray<FTaggedMontage> AAuraCharacterBase::GetAttackMontages_Implementation()
 	return AttackMontages;
 }
 
+UNiagaraSystem* AAuraCharacterBase::GetBloodEffects_Implementation()
+{
+	return BloodEffects;
+	
+}
+
 void AAuraCharacterBase::InitAbilityActorInfo()
 {
 	
