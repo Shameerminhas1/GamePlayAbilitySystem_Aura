@@ -100,8 +100,11 @@ protected:
 	// make a dynamic material instance on basis of dissolve mi given in bp code is structured to swap materials and continue the timeline
 	void Dissolve();
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, category = "Combat")
 	UNiagaraSystem* BloodEffects;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, category = "Combat")
+	USoundBase* DeathSound;
 	
 private:
 	
