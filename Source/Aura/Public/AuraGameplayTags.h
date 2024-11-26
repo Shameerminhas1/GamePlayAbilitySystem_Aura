@@ -51,6 +51,7 @@ public:
 	FGameplayTag InputTag_4;
 
 	FGameplayTag Abilities_Attack;
+	FGameplayTag Abilities_Summon;
 
 	FGameplayTag Damage;
 
