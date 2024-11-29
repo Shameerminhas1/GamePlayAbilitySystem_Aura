@@ -20,8 +20,9 @@ void UAuraAbilitySystemComponent::AddCharacterAbilities(TArray<TSubclassOf<UGame
 			AbilitySpec.DynamicAbilityTags.AddTag(AuraAbility->StartupInputTag);
 			GiveAbility(AbilitySpec);
 		}
-		//GiveAbilityAndActivateOnce(AbilitySpec);
 	}
+	bStartUpAbilitiesGiven = true;
+	AbilitiesGivenDelegate.Broadcast(this);
 }
    
 void UAuraAbilitySystemComponent::AbilityInputTagHeld(const FGameplayTag& InputTag)

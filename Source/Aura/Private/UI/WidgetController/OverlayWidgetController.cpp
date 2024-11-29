@@ -49,19 +49,36 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 			OnMaxManaChanged.Broadcast(Data.NewValue);
 		}
 	);
-
-	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetTags.AddLambda(
-		[this] (const FGameplayTagContainer& AssetTag)                      
+	if (UAuraAbilitySystemComponent* AuraASC = Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent))
 	{
-		for( const FGameplayTag Tag : AssetTag )
+		if (AuraASC->bStartUpAbilitiesGiven)
 		{
-			//"MessageTag.HealthPotion".MatchesTag("Message") will return true and if "Message".MatchesTag("Message.HealthPotion") will return false
-			FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
-			if (Tag.MatchesTag(MessageTag))
-			{
-				const FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable,Tag);
-				MessageWidgetRowDelegate.Broadcast(*Row);
-			}
+			OnInitializeStartupAbilities(AuraASC);
 		}
-	});
+		else
+		{
+			AuraASC->AbilitiesGivenDelegate.AddUObject(this, &UOverlayWidgetController::OnInitializeStartupAbilities);
+		}
+		AuraASC->EffectAssetTags.AddLambda(
+			[this](const FGameplayTagContainer& AssetTag)
+			{
+				for (const FGameplayTag Tag : AssetTag)
+				{
+					//"MessageTag.HealthPotion".MatchesTag("Message") will return true and if "Message".MatchesTag("Message.HealthPotion") will return false
+					FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
+					if (Tag.MatchesTag(MessageTag))
+					{
+						const FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable, Tag);
+						MessageWidgetRowDelegate.Broadcast(*Row);
+					}
+				}
+			});
+	}
+}
+
+void UOverlayWidgetController::OnInitializeStartupAbilities(UAuraAbilitySystemComponent* AuraAbilitySystemComponent)
+{
+	//TODO : Get Information about all given abilities, lookup there Ability info and broadcast it to widgets.
+	if (!AuraAbilitySystemComponent->bStartUpAbilitiesGiven) return;
+	
 }
