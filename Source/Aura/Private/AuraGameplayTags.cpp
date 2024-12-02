@@ -165,6 +165,14 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	FString("FireBolt Ability Tag"));
 
 	/**
+	 * Cool Down
+	 */
+	
+	GameplayTags.Cooldown_Fire_FireBolt = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("Cooldown.Fire.FireBolt"),
+	FString("FireBolt Cooldown Tag"));
+
+	/**
 	 * Combat Sockets
 	 */
 
