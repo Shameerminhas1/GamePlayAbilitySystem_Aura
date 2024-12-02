@@ -7,7 +7,7 @@
 UWaitCooldownChange* UWaitCooldownChange::WaitForCooldownChange(UAbilitySystemComponent* AbilitySystemComponent,const FGameplayTag& InCooldownTag)
 {
 	UWaitCooldownChange* WaitCooldownChange = NewObject<UWaitCooldownChange>();
-	WaitCooldownChange->ASC;
+	WaitCooldownChange->ASC = AbilitySystemComponent;
 	WaitCooldownChange->CooldownTag = InCooldownTag;
 
 	if (!IsValid(AbilitySystemComponent)|| !InCooldownTag.IsValid())
