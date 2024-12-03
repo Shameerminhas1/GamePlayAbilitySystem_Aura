@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
+#include "AbilitySystem/Data/LevelUpInfo.h"
 #include "GameFramework/PlayerState.h"
 #include "AuraPlayerState.generated.h"
 
@@ -27,6 +28,9 @@ public:
 
 	UAttributeSet* GetAttributeSet() const {return AttributeSet;}
 
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<ULevelUpInfo> LevelUpInfo;
+	
 	FOnPlayerStatChanged OnXPChangedDelegate;
 	FOnPlayerStatChanged OnLevelChangedDelegate;
 	
