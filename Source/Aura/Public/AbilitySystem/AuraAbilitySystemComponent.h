@@ -29,6 +29,8 @@ public:
 
 	void AddCharacterAbilities(TArray<TSubclassOf<UGameplayAbility>>& StartupAbilities);
 
+	void AddCharacterPassiveAbilities(TArray<TSubclassOf<UGameplayAbility>>& StartupPassiveAbilities);
+
 	void AbilityInputTagHeld(const FGameplayTag& InputTag);
 
 	void AbilityInputTagReleased(const FGameplayTag& InputTag);

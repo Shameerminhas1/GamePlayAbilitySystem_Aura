@@ -115,7 +115,7 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Damage_Physical = UGameplayTagsManager::Get().AddNativeGameplayTag(
 	FName("Damage.Physical"),
 	FString("Physical Damage Type"));
-
+	
 	/*
 	 * Resistances
 	 */
@@ -135,7 +135,15 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_Resistance_Fire = UGameplayTagsManager::Get().AddNativeGameplayTag(
 	FName("Attributes.Resistance.Fire"),
 	FString("Resistance to Fire Damage"));
+	
+	/**
+	 * Meta Attributes
+	 */
 
+	GameplayTags.Attributes_Meta_IncomingXP = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Attributes.Meta.IncomingXP"),
+		FString("IncomingXP  Meta Attribute"));
+	
 	/*Effects*/
 
 	GameplayTags.DamageTypesToResistance.Add(GameplayTags.Damage_Arcane, GameplayTags.Attributes_Resistance_Arcane);
@@ -144,7 +152,7 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.DamageTypesToResistance.Add(GameplayTags.Damage_Physical, GameplayTags.Attributes_Resistance_Physical);
 	
 	
-	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(      
 	FName("Effects.HitReact"),
 	FString("Tag Granted When Hit Reacting"));
 
