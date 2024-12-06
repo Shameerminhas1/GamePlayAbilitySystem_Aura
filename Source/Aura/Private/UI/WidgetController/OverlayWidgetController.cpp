@@ -2,7 +2,6 @@
 
 
 #include "UI/WidgetController/OverlayWidgetController.h"
-#include "NiagaraValidationRule.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "AbilitySystem/AuraAttributeSet.h"
 #include "AbilitySystem/Data/AbilityInfo.h"
