@@ -92,7 +92,7 @@ void UAuraAbilitySystemLibrary::GiveStartupAbilities(const UObject* WorldContext
 	}
 }
 
-int32 UAuraAbilitySystemLibrary::GetRewardForCharacterAndLevel(const UObject* WorldContextObject,
+int32 UAuraAbilitySystemLibrary::GetXPRewardForCharacterAndLevel(const UObject* WorldContextObject,
 	ECharacterClass CharacterClass, int32 CharacterLevel)
 {
 	UCharacterClassInfo* CharacterClassInfo = GetCharacterClassInfo(WorldContextObject);
