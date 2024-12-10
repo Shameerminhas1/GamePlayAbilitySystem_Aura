@@ -223,7 +223,7 @@ void UAuraAttributeSet::ShowFloatingText(const FEffectProperties& Props, float D
 
 void UAuraAttributeSet::SendXPEvent(const FEffectProperties& Props)
 {
-	if (Props.TargetAvatarActor->Implements<UCombatInterface>())
+	if (Props.TargetCharacter->Implements<UCombatInterface>())
 	{
 		const int32 TargetLevel = ICombatInterface::Execute_GetPlayerLevel(Props.TargetCharacter);
 		const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
