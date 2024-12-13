@@ -66,7 +66,7 @@ UAuraAttributeSet* UAuraWidgetController::GetAuraAS()
 {
 	if (AuraAttributeSet == nullptr)
 	{
-		AuraAttributeSet = Cast<UAuraAttributeSet>(AuraAttributeSet);
+		AuraAttributeSet = Cast<UAuraAttributeSet>(AttributeSet);
 	}
 	return AuraAttributeSet;
 }
