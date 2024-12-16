@@ -23,7 +23,6 @@ class AURA_API AAuraHUD : public AHUD
 
 public:
 	
-	
 	void InitOverlay(APlayerController* PC,APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS);
 	
 	UOverlayWidgetController* GetOverlayWidgetController(const FWidgetControllerParams& WCParams);
@@ -63,5 +62,3 @@ private:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<USpellMenuWidgetController> SpellMenuWidgetControllerClass;
 };
-
-               

@@ -46,6 +46,6 @@ void UAttributeMenuWidgetController::BroadcastAttributeInfo(const FGameplayTag A
                                                             const FGameplayAttribute& Attribute) const
 {
 	FAuraAttributeInfo Info = AttributeInfo->FindAttributeInfoForTag(AttributeTag);
-	Info.AttributeValue = Attribute.GetNumericValue(AttributeSet);
+	Info.AttributeValue = Attribute.GetNumericValue(AttributeSet); 
 	AttributeInfoDelegate.Broadcast(Info);
 }

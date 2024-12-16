@@ -24,7 +24,7 @@ class AURA_API UAuraAbilitySystemLibrary : public UBlueprintFunctionLibrary
 public:
 
 	UFUNCTION(BlueprintPure, category="AuraAbilitySystem?library|WidgetController", meta=(DefaultToSelf = "WorldContextObject"))
-	static bool  MakeWidgetControllerParams(const UObject* WorldContextObject, FWidgetControllerParams OutWCParams, AAuraHUD*& OutAuraHUD);
+	static bool  MakeWidgetControllerParams(const UObject* WorldContextObject, FWidgetControllerParams& OutWCParams, AAuraHUD*& OutAuraHUD);
 	
 	UFUNCTION(BlueprintPure, category="AuraAbilitySystemlibrary|WidgetController", meta=(DefaultToSelf = "WorldContextObject"))
 	static UOverlayWidgetController* GetOverlayWidgetController(const UObject* WorldContextObject);
