@@ -22,7 +22,7 @@ void UAuraWidgetController::BroadcastInitialValues()
 	
 }
 
-void UAuraWidgetController::BroadcastAbilityInfo()
+void UAuraWidgetController:: BroadcastAbilityInfo()
 {
 	if (!GetAuraASC()->bStartUpAbilitiesGiven) return;
 	FForEachDelegate BroadCastDelegate;
@@ -30,6 +30,7 @@ void UAuraWidgetController::BroadcastAbilityInfo()
 	{
 		FAuraAbilityInfo Info = AbilityInfo->FindAbilityInfoForTag(AuraAbilitySystemComponent->GetAbilityTagFromSpec(AbilitySpec));
 		Info.InputTag = AuraAbilitySystemComponent->GetInputTagFromSpec(AbilitySpec);
+		Info.StatusTag = AuraAbilitySystemComponent->GetStatusFromSpec(AbilitySpec);
 		AbilityInfoDelegate.Broadcast(Info);
 	});
 	GetAuraASC()->ForEachAbility(BroadCastDelegate);
