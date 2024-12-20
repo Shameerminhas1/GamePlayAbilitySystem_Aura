@@ -8,25 +8,6 @@
 #include "Interaction/CombatInterface.h"
 #include "Aura/Public/AuraGameplayTags.h"
 
-FString UAuraProjectileSpell::GetDescription(int32 Level)
-{
-	const int32 Damage = DamageTypes[FAuraGameplayTags::Get().Damage_Fire].GetValueAtLevel(Level);
-	if (Level)
-	{
-		return FString::Printf(TEXT("<Title>FIRE BOLT</>\n\n<Default>Launches a Bolt of Fire, Exploding on impact and dealing: </>, <Damage>%d</>, <Default> Fire damage with a chance of burn</>\n\n<Small>Level: </><Level>%d</>"),Damage,Level);
-	}
-	else
-	{
-		return FString::Printf(TEXT("<Title>FIRE BOLT</>\n\n<Default>Launches %d Bolts of Fire, Exploding on impact and dealing: </>, <Damage>%d</>, <Default> Fire damage with a chance of burn</>\n\n<Small>Level: </><Level>%d</>"), FMath::Min(Level, NumProjectiles),Damage,Level);
-	}
-}
-
-FString UAuraProjectileSpell::GetNextLevelDescription(int32 Level)
-{
-	const int32 Damage = DamageTypes[FAuraGameplayTags::Get().Damage_Fire].GetValueAtLevel(Level);
-	return FString::Printf(TEXT("<Title>NEXT LEVEL</>\n\n<Default>Launches %d Bolts of Fire, Exploding on impact and dealing: </>, <Damage>%d</>, <Default> Fire damage with a chance of burn</>\n\n<Small>Level: </><Level>%d</>"), FMath::Min(Level, NumProjectiles),Damage,Level);
-}
-
 void UAuraProjectileSpell::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
                                            const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
                                            const FGameplayEventData* TriggerEventData)
