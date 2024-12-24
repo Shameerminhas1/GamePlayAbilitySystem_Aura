@@ -85,6 +85,11 @@ public:
 	FGameplayTag Debuff_stun;
 	FGameplayTag Debuff_Arcane;
 	FGameplayTag Debuff_Physical;
+	
+	FGameplayTag Debuff_Damage;
+	FGameplayTag Debuff_Chance;
+	FGameplayTag Debuff_Frequency;
+	FGameplayTag Debuff_Duration;
 
 	FGameplayTag CombatSocket_Weapon;
 	FGameplayTag CombatSocket_RightHand;
