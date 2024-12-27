@@ -37,7 +37,7 @@ public:
 	virtual AActor* GetCombatTarget_Implementation() const override;
 	/** end Combat Interface*/
 
-	virtual void Die() override;
+	virtual void Die(const FVector& DeathImpulse) override;
 
 	void HitReactTagChanged(FGameplayTag CallbackTag, int32 NewCount);
 
