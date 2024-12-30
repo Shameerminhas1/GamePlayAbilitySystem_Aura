@@ -16,9 +16,11 @@ class AURA_API UAuraDamageGameplayAbility : public UAuraGameplayAbility
 {
 	GENERATED_BODY()
 public:
-	UFUNCTION(BlueprintCallable)
+	
+	 UFUNCTION(BlueprintCallable)
      void CauseDamage(AActor* TargetActor);
 
+	UFUNCTION(BlueprintPure)
 	FDamageEffectParams MakeDamageEffectParamsFromClassDefault(AActor* TargetActor = nullptr) const;
 	
 protected:
@@ -45,7 +47,13 @@ protected:
 	float DebuffDuration = 5.f;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
-	float DeathImpulseMagnitude = 5.f;
+	float DeathImpulseMagnitude = 1000.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float KnockbackForceMagnitude = 1000.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float KnockbackChance = 0.f;
 
 	UFUNCTION(BlueprintPure)
 	FTaggedMontage GetRandomMontageFromArray(const TArray<FTaggedMontage>& TaggedMontages) const;

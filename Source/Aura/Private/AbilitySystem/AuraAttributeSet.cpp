@@ -180,6 +180,11 @@ void UAuraAttributeSet::HandleIncomingDamage(const FEffectProperties& Props)
 			TagContainer.AddTag(FAuraGameplayTags::Get().Effects_HitReact);
 			//call will trigger ApplyGameplayEffectToOwner
 			Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
+			FVector KnockbackForce = UAuraAbilitySystemLibrary::GetKnockbackForce(Props.EffectContextHandle);
+			if (!KnockbackForce.IsNearlyZero(1.f))
+			{
+				Props.TargetCharacter->LaunchCharacter(KnockbackForce,true,true);
+			}
 		}
 		//damage no.
 		const bool bBlock = UAuraAbilitySystemLibrary::IsBlockedHit(Props.EffectContextHandle);
