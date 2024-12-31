@@ -103,14 +103,20 @@ public:
 	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary| GameplayEffects")
 	static FVector GetKnockbackForce(const FGameplayEffectContextHandle& EffectContextHandle);
 	
-	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystem?library|GameplayMechanics")
+	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemlibrary|GameplayMechanics")
 	static void GetLivePlayerWithinRadius(const UObject* WorldContextObject, TArray<AActor*>& OutOverlappingActors, const TArray<AActor*>& ActorsToIgnore, float Radius, const FVector& SphereOrigin);
 
-	UFUNCTION(BlueprintPure, Category="AuraAbilitySystem?library|GameplayMechanics")
+	UFUNCTION(BlueprintPure, Category="AuraAbilitySystemlibrary|GameplayMechanics")
 	static bool IsNotFriend(AActor* FirstActor, AActor* SecondActor);
 
-	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystem?library|DamageEffect")
+	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemlibrary|DamageEffect")
 	static FGameplayEffectContextHandle ApplyDamageEffects(const FDamageEffectParams& DamageEffectParams);
+
+	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemlibrary|GameplyMechanics")
+	static  TArray<FRotator> EvenlySpacedRotators(const FVector& Forward, const FVector& Axis, float Spread,int32 NumRotators);
+
+	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemlibrary|GameplyMechanics")
+	static  TArray<FVector> EvenlyRotatedVectors(const FVector& Forward, const FVector& Axis, float Spread, int32 NumVectors);
 	
 	static int32 GetXPRewardForCharacterAndLevel(const UObject* WorldContextObject,ECharacterClass CharacterClass, int32 CharacterLevel);
 	
