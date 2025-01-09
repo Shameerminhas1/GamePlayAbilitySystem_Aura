@@ -180,7 +180,7 @@ void UAuraAttributeSet::HandleIncomingDamage(const FEffectProperties& Props)
 			TagContainer.AddTag(FAuraGameplayTags::Get().Effects_HitReact);
 			//call will trigger ApplyGameplayEffectToOwner
 			Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
-			FVector KnockbackForce = UAuraAbilitySystemLibrary::GetKnockbackForce(Props.EffectContextHandle);
+			const FVector& KnockbackForce = UAuraAbilitySystemLibrary::GetKnockbackForce(Props.EffectContextHandle);
 			if (!KnockbackForce.IsNearlyZero(1.f))
 			{
 				Props.TargetCharacter->LaunchCharacter(KnockbackForce,true,true);
@@ -244,12 +244,20 @@ void UAuraAttributeSet::Debuff(const FEffectProperties& Props)
 	Effect->Period = DebuffFrequency;
 	Effect->DurationMagnitude = FScalableFloat(DebuffDuration);
 
-	Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.DamageTypesToDebuffs[DamageType]);
+	const FGameplayTag DebuffTag = GameplayTags.DamageTypesToDebuffs[DamageType];
+	Effect->InheritableOwnedTagsContainer.AddTag(DebuffTag);
+	if (DebuffTag.MatchesTagExact(GameplayTags.Debuff_stun))
+	{
+		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_CursorTrace);
+		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputHeld);
+		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputPressed);
+		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputReleased);
+	}
 
 	Effect->StackingType = EGameplayEffectStackingType::AggregateBySource;
 	Effect->StackLimitCount = 1;
 	
-	int32 Index = Effect->Modifiers.Num();
+	const int32 Index = Effect->Modifiers.Num();
 	Effect->Modifiers.Add(FGameplayModifierInfo());
 	FGameplayModifierInfo& ModifierInfo = Effect->Modifiers[Index];
 
