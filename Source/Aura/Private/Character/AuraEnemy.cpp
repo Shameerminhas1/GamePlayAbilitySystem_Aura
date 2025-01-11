@@ -138,7 +138,7 @@ void AAuraEnemy::InitAbilityActorInfo()
 {
 	AbilitySystemComponent->InitAbilityActorInfo(this,this);
 	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
-	AbilitySystemComponent->RegisterGameplayTagEvent(FAuraGameplayTags :: Get().Debuff_stun, EGameplayTagEventType :: NewOrRemoved). AddUObject(this, &AAuraEnemy::StunTagChanged);
+	AbilitySystemComponent->RegisterGameplayTagEvent(FAuraGameplayTags :: Get().Debuff_stun, EGameplayTagEventType::NewOrRemoved). AddUObject(this, &AAuraEnemy::StunTagChanged);
 	if (HasAuthority())
 	{
 		InitializeDefaultAttributes();

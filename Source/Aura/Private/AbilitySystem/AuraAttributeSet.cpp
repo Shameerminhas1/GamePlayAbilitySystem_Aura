@@ -14,6 +14,7 @@
 #include "Interaction/PlayerInterface.h"
 #include "Kismet/GameplayStatics.h"
 #include "Player/AuraPlayerController.h"
+#include "GameplayEffectComponents/TargetTagsGameplayEffectComponent.h"
 
 UAuraAttributeSet::UAuraAttributeSet()
 {
@@ -175,11 +176,14 @@ void UAuraAttributeSet::HandleIncomingDamage(const FEffectProperties& Props)
 		}
 		else
 		{
-			//GA_HitReact
-			FGameplayTagContainer TagContainer;
-			TagContainer.AddTag(FAuraGameplayTags::Get().Effects_HitReact);
-			//call will trigger ApplyGameplayEffectToOwner
-			Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
+			if (Props.TargetCharacter->Implements<UCombatInterface>() && !ICombatInterface::Execute_IsBeingShocked(Props.TargetCharacter))
+			{
+				//GA_HitReact
+                FGameplayTagContainer TagContainer;
+                TagContainer.AddTag(FAuraGameplayTags::Get().Effects_HitReact);
+                //call will trigger ApplyGameplayEffectToOwner
+                Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
+			}
 			const FVector& KnockbackForce = UAuraAbilitySystemLibrary::GetKnockbackForce(Props.EffectContextHandle);
 			if (!KnockbackForce.IsNearlyZero(1.f))
 			{
@@ -245,14 +249,28 @@ void UAuraAttributeSet::Debuff(const FEffectProperties& Props)
 	Effect->DurationMagnitude = FScalableFloat(DebuffDuration);
 
 	const FGameplayTag DebuffTag = GameplayTags.DamageTypesToDebuffs[DamageType];
-	Effect->InheritableOwnedTagsContainer.AddTag(DebuffTag);
+	// Effect->InheritableOwnedTagsContainer.AddTag(DebuffTag);
+	// if (DebuffTag.MatchesTagExact(GameplayTags.Debuff_stun))
+	// {
+	// 	Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_CursorTrace);
+	// 	Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputHeld);
+	// 	Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputPressed);
+	// 	Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputReleased);
+	// }
+
+	UTargetTagsGameplayEffectComponent& AssetTagsComponent = Effect->FindOrAddComponent<UTargetTagsGameplayEffectComponent>();
+	FInheritedTagContainer InheritedTagContainer;
+	InheritedTagContainer.Added.AddTag(DebuffTag);
+
 	if (DebuffTag.MatchesTagExact(GameplayTags.Debuff_stun))
 	{
-		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_CursorTrace);
-		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputHeld);
-		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputPressed);
-		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputReleased);
+		// Stunned, so block input
+		InheritedTagContainer.Added.AddTag(GameplayTags.Player_Block_CursorTrace);
+		InheritedTagContainer.Added.AddTag(GameplayTags.Player_Block_InputHeld);
+		InheritedTagContainer.Added.AddTag(GameplayTags.Player_Block_InputPressed);
+		InheritedTagContainer.Added.AddTag(GameplayTags.Player_Block_InputReleased);
 	}
+	AssetTagsComponent.SetAndApplyTargetTagChanges(InheritedTagContainer);
 
 	Effect->StackingType = EGameplayEffectStackingType::AggregateBySource;
 	Effect->StackLimitCount = 1;
