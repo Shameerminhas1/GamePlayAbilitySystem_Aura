@@ -5,7 +5,6 @@
 
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
-#include "AbilitySystem/AuraAbilitySystemLibrary.h"
 
 void UAuraPassiveAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
                                           const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,

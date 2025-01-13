@@ -51,7 +51,13 @@ public:
 
 	FGameplayTag GetStatusFromAbilityTag(const FGameplayTag& AbilityTag);
 
-	FGameplayTag GetInputTagFromAbilityTag(const FGameplayTag& AbilityTag);
+	FGameplayTag GetSlotFromAbilityTag(const FGameplayTag& AbilityTag);
+	
+	bool SlotIsEmpty(const FGameplayTag& Slot);
+
+	bool AbilityHasSlot(const FGameplayAbilitySpec& Spec, const FGameplayTag& Slot);
+
+	FGameplayAbilitySpec* GetSpecWithSlot(const FGameplayTag& Slot);
 	
 	FGameplayAbilitySpec* GetSpecFromAbilityTag(const FGameplayTag& AbilityTag);
 
@@ -67,7 +73,8 @@ public:
 
 	UFUNCTION(Server, Reliable)
 	void ServerEquipAbility(const FGameplayTag& AbilityTag,const FGameplayTag& Slot);
-
+	
+	UFUNCTION(Client, Reliable)
 	void ClientEquipAbility(const FGameplayTag& AbilityTag, const FGameplayTag& Status, const FGameplayTag& Slot, const FGameplayTag& PreviousSlot);
 
 	bool GetDescriptionsByAbilityTags(const FGameplayTag& AbilityTag, FString& OutDescription, FString& OutNextLevelDescription);
