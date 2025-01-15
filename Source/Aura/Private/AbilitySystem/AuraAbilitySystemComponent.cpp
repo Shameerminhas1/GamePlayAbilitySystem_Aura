@@ -300,7 +300,7 @@ void UAuraAbilitySystemComponent::ServerEquipAbility_Implementation(const FGamep
 				{
 					TryActivateAbility(AbilitySpec->Handle);
 					MulticastActivatePassiveEffect(AbilityTag ,true);
-				}
+				} 
 			}
 			AssignSlotToAbility(*AbilitySpec,Slot);
 			MarkAbilitySpecDirty(*AbilitySpec);

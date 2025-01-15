@@ -191,4 +191,4 @@ void USpellMenuWidgetController::ShouldEnableButton(const FGameplayTag& AbilityS
 		}
 	}
 }
-
+  
