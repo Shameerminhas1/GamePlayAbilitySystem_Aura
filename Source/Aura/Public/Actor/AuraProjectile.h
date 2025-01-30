@@ -43,15 +43,16 @@ protected:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TObjectPtr<USphereComponent> Sphere;
+
+	bool IsValidOverLap(AActor* OtherActor);
 	
+	bool bHit = false;
 	
 private:
 
 	UPROPERTY(EditDefaultsOnly)
 	float LifeSpan = 15.f;
 	
-	bool bHit = false;
-
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UNiagaraSystem> ImpactEffect;
 
