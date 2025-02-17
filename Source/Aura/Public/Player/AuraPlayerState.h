@@ -46,7 +46,9 @@ public:
 	void AddToLevel(int32 InLevel);
 	void SetLevel(int32 InLevel);
 	void AddToAttributePoints(int32 InPoints);
+	void SetAttributePoints(int32 InPoints);
 	void AddToSpellPoints(int32 InPoints);
+	void SetSpellPoints(int32 InPoints);
 	
 protected:
 	

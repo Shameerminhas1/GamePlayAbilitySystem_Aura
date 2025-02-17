@@ -4,6 +4,7 @@
 #include "UI/HUD/LoadScreenHUD.h"
 
 #include "Blueprint/UserWidget.h"
+#include "UI/ViewModel/MVVM_LoadScreen.h"
 #include "UI/Widget/LoadScreenWidget.h"
 
 void ALoadScreenHUD::BeginPlay()
