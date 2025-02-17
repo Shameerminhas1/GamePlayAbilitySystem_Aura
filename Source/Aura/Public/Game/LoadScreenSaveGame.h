@@ -56,6 +56,9 @@ public:
 	UPROPERTY()
 	int32 AttributePoints = 0;
 
+	UPROPERTY()
+	bool bFirstTimeLoadIn = true;
+
 	/* Attributes */
 	
 	UPROPERTY()
