@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "GameplayTagContainer.h"
+#include "Interaction/HighlightInterface.h"
 #include "AuraPlayerController.generated.h"
 
 class AMagicCircle;
@@ -14,7 +15,6 @@ class UAuraInputConfig;
 struct FInputActionValue;
 class UInputMappingContext;
 class UInputAction;
-class IEnemyInterface;
 class UAuraAbilitySystemComponent;
 class USplineComponent;
 /**
@@ -59,8 +59,8 @@ private:
 
 	void CursorTrace();
 	FHitResult CursorHit;
-	TScriptInterface<IEnemyInterface> LastActor;
-	TScriptInterface<IEnemyInterface> ThisActor;
+	TScriptInterface<IHighlightInterface> LastActor;
+	TScriptInterface<IHighlightInterface> ThisActor;
 
 	void AbilityInputTagPressed(FGameplayTag InputTag);
 	void AbilityInputTagReleased(FGameplayTag InputTag);
