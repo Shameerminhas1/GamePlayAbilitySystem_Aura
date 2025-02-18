@@ -24,8 +24,10 @@ class AURA_API IHighlightInterface
 public:
 
 	//pure virtual functions rendering this class abstract, now this class does not need definition.
-	virtual void HighlightActor() = 0;
-	virtual void UnHighlightActor() = 0;
+	UFUNCTION(BlueprintNativeEvent)
+	void HighlightActor();
+	UFUNCTION(BlueprintNativeEvent)
+	void UnHighlightActor();
 
 protected: 
 

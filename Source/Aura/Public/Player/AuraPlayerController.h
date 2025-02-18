@@ -17,6 +17,14 @@ class UInputMappingContext;
 class UInputAction;
 class UAuraAbilitySystemComponent;
 class USplineComponent;
+
+enum class ETargetingStatus : uint8
+{
+	TargetingEnemy,
+	TargetingNonEnemy,
+	NotTargeting
+};
+
 /**
  * 
  */
@@ -59,8 +67,15 @@ private:
 
 	void CursorTrace();
 	FHitResult CursorHit;
-	TScriptInterface<IHighlightInterface> LastActor;
-	TScriptInterface<IHighlightInterface> ThisActor;
+
+	static void HighlightActor(AActor* InActor);
+
+	static void UnHighlightActor(AActor* InActor);
+	
+	//TScriptInterface<AActor>
+	TObjectPtr<AActor> LastActor;
+	//TScriptInterface<AActor>
+	TObjectPtr<AActor> ThisActor;
 
 	void AbilityInputTagPressed(FGameplayTag InputTag);
 	void AbilityInputTagReleased(FGameplayTag InputTag);
@@ -78,7 +93,7 @@ private:
 	float FollowTime = 0.f;
 	float ShortPressThreshold = 0.5f;
 	bool bAutoRunning = false;
-	bool bTargeting = false;
+	ETargetingStatus TargetingStatus = ETargetingStatus::NotTargeting;
 	
 	UPROPERTY(EditDefaultsOnly)
 	float AutoRunAcceptanceRadius = 50.f;
