@@ -28,7 +28,10 @@ public:
 	void HighlightActor();
 	UFUNCTION(BlueprintNativeEvent)
 	void UnHighlightActor();
+	UFUNCTION(BlueprintNativeEvent)
+	void SetMoveToLocation(FVector& OutDestination);
 
-protected: 
+protected:
+	
 
 };
