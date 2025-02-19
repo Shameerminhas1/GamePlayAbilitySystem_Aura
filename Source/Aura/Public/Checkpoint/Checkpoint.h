@@ -27,10 +27,11 @@ public:
 	virtual void LoadActor_Implementation() override;
 	/*Save interface end*/
 
-	/* Highlightinterface*/
+	/* Highlightinterface */
 	virtual void SetMoveToLocation_Implementation(FVector& OutDestination) override;
 	virtual void HighlightActor_Implementation() override;
 	virtual void UnHighlightActor_Implementation() override;
+	/* End Highlightinterface */
 
 	UPROPERTY(EditDefaultsOnly)
 	int32 CustomDepthStencilOverride = CUSTOM_DEPTH_TAN;
@@ -57,8 +58,6 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	bool bBindOverlapCallback = true;
-
-private:
 	
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USphereComponent> Sphere;
