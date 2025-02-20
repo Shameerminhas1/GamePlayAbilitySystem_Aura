@@ -27,9 +27,6 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TSoftObjectPtr<UWorld> DestinationMap;
-
-	UPROPERTY(EditAnywhere)
-	FName DestinationPlayerStartName;
 	
 	UPROPERTY(EditAnywhere)
 	FName DestinationPlayerStartTag;
