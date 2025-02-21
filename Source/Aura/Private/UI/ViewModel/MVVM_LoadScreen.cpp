@@ -37,7 +37,7 @@ void UMVVM_LoadScreen::NewSlotButtonPressed(int32 Slot, const FString& EnteredNa
 	if (!IsValid(AuraGameMode))
 	{
 		GEngine->AddOnScreenDebugMessage(1,15.f, FColor::Magenta, FString("Please Switch To SinglePlayer"));
-		return;
+		return;  
 	}
 	LoadSlots[Slot]->SetMapName(AuraGameMode->DefaultMapName);
 	LoadSlots[Slot]->SetPlayerName(EnteredName);
@@ -46,6 +46,7 @@ void UMVVM_LoadScreen::NewSlotButtonPressed(int32 Slot, const FString& EnteredNa
 	AuraGameMode->SaveSlotData(LoadSlots[Slot],Slot);
 	LoadSlots[Slot]->InitializeSlot();
 	LoadSlots[Slot]->PlayerStartTag = AuraGameMode->DefaultPlayerStartTag;
+	LoadSlots[Slot]->MapAssetName = AuraGameMode->DefaultMap.ToSoftObjectPath().GetAssetName();
 
 	UAuraGameInstance* AuraGameInstance = Cast<UAuraGameInstance>(AuraGameMode->GetGameInstance());
 	AuraGameInstance->LoadSlotName = LoadSlots[Slot]->GetLoadSlotName();

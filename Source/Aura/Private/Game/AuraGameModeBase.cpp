@@ -10,6 +10,7 @@
 #include "GameFramework/PlayerStart.h"
 #include "Interaction/SaveInterface.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameFramework/Character.h"
 #include "Serialization/ObjectAndNameAsStringProxyArchive.h"
 
 class UMVVM_LoadSlot;
@@ -27,6 +28,7 @@ void AAuraGameModeBase::SaveSlotData(UMVVM_LoadSlot* LoadSlot, int32 SlotIndex)
 	LoadScreenSaveGame->PlayerName = LoadSlot->GetPlayerName();
 	LoadScreenSaveGame->SaveSlotStatus = Taken;
 	LoadScreenSaveGame->MapName = LoadSlot->GetMapName();
+	LoadScreenSaveGame->MapAssetName = LoadSlot->MapAssetName;
 	LoadScreenSaveGame->PlayerStartTag = LoadSlot->PlayerStartTag;
 	UGameplayStatics::SaveGameToSlot(LoadScreenSaveGame,LoadSlot->GetLoadSlotName(),SlotIndex);
 }
@@ -212,6 +214,16 @@ AActor* AAuraGameModeBase::ChoosePlayerStart_Implementation(AController* Player)
 		return SelectedActor;
 	}
 	return nullptr;
+}
+
+void AAuraGameModeBase::PlayerDied(ACharacter* DeadCharacter)
+{
+
+	ULoadScreenSaveGame* SaveGame = RetrievedInGameSaveData();
+	if(!IsValid(SaveGame)) return;
+
+	UGameplayStatics::OpenLevel(DeadCharacter,FName(SaveGame->MapAssetName));
+	
 }
 
 void AAuraGameModeBase::BeginPlay()
