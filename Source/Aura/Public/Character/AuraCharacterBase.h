@@ -76,6 +76,8 @@ public:
 	UFUNCTION()
 	virtual void OnRep_Burned();
 
+	void SetCharacterClass(ECharacterClass InClass) { CharacterClass = InClass;}
+
 protected:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
