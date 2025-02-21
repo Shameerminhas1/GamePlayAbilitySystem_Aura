@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AuraAbilityTypes.h"
 #include "Data/CharacterClassInfo.h"
+#include "Data/LootTiers.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "UI/HUD/AuraHUD.h"
 #include "AuraAbilitySystemLibrary.generated.h"
@@ -55,12 +56,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemlibrary|CharacterClassDefaults")
 	static void GiveStartupAbilities(const UObject* WorldContextObject, UAbilitySystemComponent* ASC, ECharacterClass CharacterClass);
 
-	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystem?library|CharacterClassDefaults")
+	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemlibrary|CharacterClassDefaults")
 	static  UCharacterClassInfo* GetCharacterClassInfo(const UObject* WorldContextObject);
 
-	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystem?library|CharacterClassDefaults")
+	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemlibrary|CharacterClassDefaults")
 	static  UAbilityInfo* GetAbilityInfo(const UObject* WorldContextObject);
 
+	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemlibrary|CharacterClassDefaults", meta=(DefaultToSelf = "WorldContextObject"))
+	static  ULootTiers* GetLootTiers(const UObject* WorldContextObject);
+	
 	/*
 	 * Effect Context setters
 	 *  */
