@@ -35,7 +35,39 @@ public:
 	
 	AAuraEffectActor();
 
+	virtual void Tick(float DeltaTime) override;
+
 protected:
+
+	UPROPERTY(BlueprintReadOnly)
+	FVector CalculatedLocation;
+
+	UPROPERTY(BlueprintReadOnly)
+	FRotator CalculatedRotation;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
+	bool bRotates = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
+	float RotationRate = 45.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
+	bool bSinusoidalMovement = false;
+
+	UFUNCTION(BlueprintCallable)
+	void StartSinusoidalMovement();
+
+	UFUNCTION(BlueprintCallable)
+	void StartRotation();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
+	float SineAmplitude = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
+	float SinePeriodConstant = 1.f; // 2 * pi
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup Movement")
+	FVector InitialLocation;
 	
 	virtual void BeginPlay() override;
 
@@ -82,4 +114,7 @@ protected:
 	
 private:
 
+	 float RunningTime = 0.f;
+
+	void ItemMovement(float DeltaTime);
 };

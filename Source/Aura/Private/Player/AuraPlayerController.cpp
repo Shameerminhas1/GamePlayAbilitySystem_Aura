@@ -184,12 +184,12 @@ void AAuraPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
 		if (IsValid(ThisActor))
 		{
 			TargetingStatus = ThisActor->Implements<UEnemyInterface>() ? ETargetingStatus::TargetingEnemy : ETargetingStatus::TargetingNonEnemy;
-			bAutoRunning = false;
 		}
 		else
 		{
 			TargetingStatus = ETargetingStatus::NotTargeting;
 		}
+		bAutoRunning = false;
 	}
 	if (GetASC()) GetASC()->AbilityInputTagPressed(InputTag);
 }
@@ -217,7 +217,7 @@ void AAuraPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 			}
 			else if (GetASC() && !GetASC()->HasMatchingGameplayTag(FAuraGameplayTags::Get().Player_Block_InputPressed))
 			{
-                	UNiagaraFunctionLibrary::SpawnSystemAtLocation(this,ClickNiagaraSystem,CachedDestination);
+                	UNiagaraFunctionLibrary::SpawnSystemAtLocation(this,ClickNiagaraSystem,CachedDestination); 
 			}
 			if(UNavigationPath* NavPath = UNavigationSystemV1::FindPathToLocationSynchronously(this,ControlledPawn->GetActorLocation(), CachedDestination))
 			{
